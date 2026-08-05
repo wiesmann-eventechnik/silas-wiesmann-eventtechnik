@@ -831,7 +831,7 @@ section {
 .combo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 22px;
 }
 
 .combo-card {
@@ -839,28 +839,40 @@ section {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 28px 24px 24px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
 }
 
-.combo-card.combo-popular {
+.combo-card:hover {
+  transform: translateY(-6px);
   border-color: var(--accent-dim);
-  background: var(--surface-2);
 }
 
-.combo-badge {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent-light);
-  border: 1px solid var(--accent-dim);
-  padding: 5px 10px;
-  border-radius: 20px;
-  margin-bottom: 14px;
+.combo-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.combo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.combo-card:hover .combo-thumb img {
+  transform: scale(1.06);
+}
+
+.combo-body {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .combo-card h3 {
@@ -868,33 +880,29 @@ section {
   margin-bottom: 8px;
 }
 
-.combo-card > p {
+.combo-body > p {
   color: var(--text-muted);
   font-size: 0.88rem;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   flex: 1;
 }
 
 .combo-tags {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
 }
 
-.combo-tags li {
-  font-size: 0.85rem;
+.combo-tags span {
+  font-size: 0.76rem;
   color: var(--text);
-  padding-left: 18px;
-  position: relative;
-}
-
-.combo-tags li::before {
-  content: "+";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: 700;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 5px 12px;
 }
 
 /* ==========================================================================
