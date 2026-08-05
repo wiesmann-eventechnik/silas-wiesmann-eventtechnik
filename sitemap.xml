@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://siwies08-pixel.github.io/silas-wiesmann-eventtechnik/agb.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://siwies08-pixel.github.io/silas-wiesmann-eventtechnik/impressum.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

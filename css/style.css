@@ -453,7 +453,7 @@ section {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
 
@@ -605,6 +605,15 @@ section {
 .detail-copy > p {
   color: var(--text-muted);
   margin-bottom: 26px;
+}
+
+.spec-subhead {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 10px;
 }
 
 .spec-list {
