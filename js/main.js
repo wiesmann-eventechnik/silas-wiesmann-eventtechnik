@@ -64,14 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  /* ---- Contact form (no backend yet) ---- */
+  /* ---- Contact form (FormSubmit.co backend) ---- */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
+  const statusError = document.getElementById('formStatusError');
   if (form && status) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      status.classList.add('show', 'ok');
-      form.querySelector('button[type="submit"]').disabled = true;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      status.classList.remove('show', 'ok');
+      statusError.classList.remove('show');
+
+      const ajaxUrl = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      fetch(ajaxUrl, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      })
+        .then((res) => { if (!res.ok) throw new Error('Request failed'); })
+        .then(() => {
+          status.classList.add('show', 'ok');
+          form.reset();
+        })
+        .catch(() => {
+          statusError.classList.add('show');
+          submitBtn.disabled = false;
+        });
     });
   }
 

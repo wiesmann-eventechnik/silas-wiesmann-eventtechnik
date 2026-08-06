@@ -490,7 +490,11 @@
           </div>
         </div>
 
-        <form class="contact-form reveal" id="contactForm">
+        <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/siwies08@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Neue Anfrage über die Website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="field">
               <label for="fName">Name</label>
@@ -526,7 +530,8 @@
             <label for="fPriv">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage einverstanden. Für Buchungen gelten meine <a href="agb.html">AGB &amp; Mietbedingungen</a>.</label>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Anfrage senden</button>
-          <p class="form-status" id="formStatus">Danke für deine Nachricht! Da diese Seite noch keine Server-Anbindung hat, schreib mir aktuell bitte direkt per E-Mail oder Telefon — die Kontaktdaten stehen daneben.</p>
+          <p class="form-status" id="formStatus">Danke für deine Nachricht! Ich melde mich so schnell wie möglich bei dir zurück.</p>
+          <p class="form-status form-status-error" id="formStatusError">Es gab ein technisches Problem beim Senden. Schreib mir bitte direkt an <a href="mailto:siwies08@gmail.com">siwies08@gmail.com</a> oder ruf an.</p>
         </form>
       </div>
     </div>

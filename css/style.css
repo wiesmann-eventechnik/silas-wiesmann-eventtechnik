@@ -1120,6 +1120,7 @@ section {
 
 .form-status.show { display: block; }
 .form-status.ok { color: #7fd68a; }
+.form-status-error.show { color: #e08a8a; }
 
 /* ==========================================================================
    Footer
