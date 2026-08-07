@@ -1,8 +1,6 @@
 // Silas Wiesmann Eventtechnik — Site-Interaktionen
 
-// TODO: durch die echte Google Analytics 4 Measurement-ID ersetzen (Format "G-XXXXXXXXXX"),
-// sobald das GA4-Property in Google Analytics angelegt wurde.
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-THWPVS0M8K';
 
 function loadGoogleAnalytics() {
   if (window.gaLoaded || !GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.indexOf('XXXX') !== -1) return;
