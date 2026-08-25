@@ -92,6 +92,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Zusatzpaket: Extras-Auswahl ---- */
+  const extraToggles = document.querySelectorAll('.extra-toggle');
+  const extrasChips = document.getElementById('extrasChips');
+  const extrasEmpty = document.getElementById('extrasEmpty');
+  const extrasCta = document.getElementById('extrasCta');
+  const leistungSelect = document.getElementById('fType');
+  const nachrichtField = document.getElementById('fMsg');
+
+  if (extraToggles.length && extrasChips) {
+    const getSelectedLabels = () =>
+      Array.from(extraToggles).filter((t) => t.checked).map((t) => t.dataset.label);
+
+    const renderChips = () => {
+      const selected = getSelectedLabels();
+      extrasChips.innerHTML = '';
+      selected.forEach((label) => {
+        const chip = document.createElement('span');
+        chip.textContent = label;
+        extrasChips.appendChild(chip);
+      });
+      if (extrasEmpty) extrasEmpty.style.display = selected.length ? 'none' : '';
+    };
+
+    extraToggles.forEach((t) => t.addEventListener('change', renderChips));
+    renderChips();
+
+    if (extrasCta) {
+      extrasCta.addEventListener('click', (e) => {
+        const selected = getSelectedLabels();
+        if (!selected.length) return;
+        e.preventDefault();
+
+        if (leistungSelect) {
+          const zusatzOption = Array.from(leistungSelect.options)
+            .find((o) => o.value.startsWith('Zusatzpaket'));
+          if (zusatzOption) leistungSelect.value = zusatzOption.value;
+        }
+        if (nachrichtField && !nachrichtField.value.includes('Gewünschte Extras:')) {
+          nachrichtField.value = 'Gewünschte Extras: ' + selected.join(', ') + '.\n\n' + nachrichtField.value;
+        }
+
+        const kontakt = document.getElementById('kontakt');
+        if (kontakt) kontakt.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => { if (nachrichtField) nachrichtField.focus(); }, 450);
+      });
+    }
+  }
+
   /* ---- Cookie consent ---- */
   initCookieConsent();
 });
