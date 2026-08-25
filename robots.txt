@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://siwies08-pixel.github.io/silas-wiesmann-eventtechnik/sitemap.xml
+Sitemap: https://wiesmann-eventtechnik.de/sitemap.xml
